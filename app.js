@@ -12,6 +12,13 @@ io.on('connection',(socket)=>{
     socket.emit('conectou',{});
     socket.on('disconnect',()=>{
         console.log('O usuário desconectou');
+    });
+
+    socket.on('msgParaServidor',(data)=>{
+        
+        io.emit('msgParaCliente',{apelido:data.apelido,mensagem: data.mensagem});
     })
+    
+
     
 });

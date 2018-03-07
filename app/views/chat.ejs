@@ -104,7 +104,7 @@
 		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 			<div class="container">
 				<div class="panel-body campo-mensagem">
-					<form action="#">
+				
 						<div class="col-md-12">
 							<div class="input-group">
 								<input type="hidden" id="meuApelido" value="<%=dadosForm.apelido%>">
@@ -114,7 +114,7 @@
 								</span>
 							</div>
 						</div>
-					</form>
+
 				</div>
 			</div>
 		</nav>		
@@ -129,7 +129,7 @@
 			var dialogos = $('#dialogos');
 			
 			dialogos.append
-			(`<div class="dialogo">
+				(`<div class="dialogo" >
 				<h4>${apelido}</h4>
 				<p>${mensagem}</p>
 			</div>`);
@@ -139,15 +139,16 @@
 			mensagem(data.apelido,data.mensagem);	
 		});
 
-		socket.on('novaMsg',(data)=>{
+		socket.on('msgParaCliente',(data)=>{
+			console.log(data);
 			mensagem(data.apelido,data.mensagem);
 		})
 
 		$("#submit").click((e)=>{
 			let msg = $("#mensagem").val();
 			let apelido = $("#meuApelido").val();
+			socket.emit('msgParaServidor',{ mensagem: msg,apelido:apelido});
 			$('#mensagem').val('');	
-			$.post('/enviaMsg',{ mensagem: msg,apelido:apelido});
 		})
 
 	

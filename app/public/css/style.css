@@ -87,6 +87,14 @@ img {
 	background:#D8F0FE;
 }
 
+.meudialogo{
+    width:100%;
+	height:auto;
+	margin-bottom:15px;
+	padding:10px;
+	background:rgb(200, 231, 192);
+}
+
 .dialogo h4{
 	font-size:15px;
 	font-weight: bold;
@@ -94,6 +102,17 @@ img {
 }
 
 .dialogo p{
+	font-size:12px;
+	padding-left:15px;
+	color:#8B7777;
+}
+
+.meudialogo h4{
+	font-size:15px;
+	font-weight: bold;
+	color:#8B7777;
+}
+.meudialogo p{
 	font-size:12px;
 	padding-left:15px;
 	color:#8B7777;

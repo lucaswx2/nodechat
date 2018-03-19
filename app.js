@@ -15,8 +15,17 @@ io.on('connection',(socket)=>{
     });
 
     socket.on('msgParaServidor',(data)=>{
-        
-        io.emit('msgParaCliente',{apelido:data.apelido,mensagem: data.mensagem});
+        console.log('msgParaServidor running...' );
+        console.log(data);
+        socket.emit('msgParaCliente',{apelido:data.apelido,mensagem: data.mensagem});
+        socket.broadcast.emit('msgParaCliente',{apelido:data.apelido,mensagem: data.mensagem});
+
+
+        if(parseInt(data.statusLogin) == 0){
+            socket.emit('participantesParaCliente',{apelido:data.apelido});
+            socket.broadcast.emit('participantesParaCliente',{apelido:data.apelido});
+        }
+       
     })
     
 

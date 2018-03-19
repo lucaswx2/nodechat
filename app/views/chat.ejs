@@ -132,9 +132,11 @@
 			var dialogos = $('#pessoas');
 			
 			dialogos.append
-				(`<span class="dialogo" >
+				(`<span class="participante" >
+				<img src="images/ico_usuario.png">
 				${data.apelido}
 			</span>`);
+			window.scrollTo(0,document.body.scrollHeight);
 		})
 
 		socket.on('msgParaCliente',(data)=>{
